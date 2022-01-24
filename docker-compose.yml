@@ -1,0 +1,28 @@
+version: '3.9'
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+  email-api:
+    container_name: email-api
+    image: node:16
+    network_mode: 'host'
+    build: .
+    depends_on:
+      - rabbitmq
+    command:
+      - 'node'
+      - 'build/app.api.js'
+  email-qworker:
+    container_name: email-qworker
+    image: node:16
+    network_mode: 'host'
+    build: .
+    depends_on:
+      - rabbitmq
+    command:
+      - 'node'
+      - 'build/app.emailQueueWorker.js'
