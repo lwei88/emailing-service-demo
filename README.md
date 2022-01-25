@@ -15,7 +15,7 @@
 git clone https://github.com/lwei88/emailing-service-demo.git
 ```
 
-3. Change the configuration of the email server:
+3. Change the configuration of the email server in [.env](https://github.com/lwei88/emailing-service-demo/blob/main/.env) file:
 
 ### Example:
 
@@ -49,7 +49,7 @@ docker-compose up -d --build
 ## How to perform test
 
 1. Make sure the RabbitMQ service is up and running, please follow [here](#how-to-run-the-application) on how to run the application(#how-to-run-the-application)
-2. Change the configuration of the email server for test environment:
+2. Change the configuration of the email server for test environment [.env.test](https://github.com/lwei88/emailing-service-demo/blob/main/.env.test) file::
 
 ### Example:
 
