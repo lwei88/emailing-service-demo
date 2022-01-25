@@ -15,7 +15,7 @@ services:
       - rabbitmq
     command:
       - 'node'
-      - 'build/app.server.js'
+      - 'build/src/app.server.js'
     environment:
       - ENV_FILE=.env
   email-qworker:
@@ -27,6 +27,6 @@ services:
       - rabbitmq
     command:
       - 'node'
-      - 'build/app.emailQueueWorker.js'
+      - 'build/src/app.emailQueueWorker.js'
     environment:
       - ENV_FILE=.env

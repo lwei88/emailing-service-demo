@@ -4,8 +4,8 @@
   "description": "email microservice",
   "main": "app.server.js",
   "scripts": {
-    "start-api": "node build/app.server.js",
-    "start-qworker": "node build/app.emailQueueWorker.js",
+    "start-api": "node build/src/app.server.js",
+    "start-qworker": "node build/src/app.emailQueueWorker.js",
     "test": "ENV_FILE=.env.test jest --coverage --detectOpenHandles",
     "dev-api": "ts-node-dev --respawn --transpile-only src/app.server.ts",
     "dev-qworker": "ts-node-dev --respawn --transpile-only src/app.emailQueueWorker.ts",

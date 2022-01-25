@@ -25,7 +25,7 @@ SMTP_SERVER_USER=testing@gmail.com
 SMTP_SERVER_PASS=testing123
 ```
 
-4. Start the application by running the command below:
+4. Start the application by running the command below in Terminal:
 
 ```
 docker-compose up -d --build

@@ -8,4 +8,4 @@ RUN npm install
 
 RUN npm run build
 
-CMD [ "node", "build/app.api.js" ]
+CMD [ "node", "build/src/app.api.js" ]
