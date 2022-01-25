@@ -36,9 +36,6 @@ class Worker<T> {
       await ch.consume(messageQueue, onMessageCb, { noAck: false, arguments: { redelivered: false } });
     } catch (error) {
       console.error('Error occured: %s', error);
-    } finally {
-      if (ch) ch.close();
-      if (conn) conn.close();
     }
   }
 }

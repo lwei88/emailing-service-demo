@@ -24,8 +24,8 @@ router.post('/send', async (req: Request, res: Response) => {
   } catch (error) {
     return res.status(400).send(error);
   } finally {
-    if (ch) ch.close();
-    if (conn) conn.close();
+    if (ch) await ch.close();
+    if (conn) await conn.close();
   }
 });
 
