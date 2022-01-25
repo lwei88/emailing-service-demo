@@ -7,16 +7,15 @@ function wait(ms: number) {
 }
 
 const retryConnection = async (mqConn: string): Promise<[amqp.Connection, amqp.Channel]> => {
-  let channel: amqp.Channel;
-  let connection: amqp.Connection;
   console.log('Connecting to MQ...');
+  const connection = await amqp.connect(mqConn);
+  const channel = await connection.createChannel();
 
-  try {
-    connection = await amqp.connect(mqConn);
-    channel = await connection.createChannel();
+  if (connection && channel) {
+    console.log('Connected');
     return [connection, channel];
-  } catch (e: any) {
-    console.log(e.message);
+  } else {
+    console.log('Retry in 5sec...');
     await wait(5000);
     return await retryConnection(mqConn);
   }
